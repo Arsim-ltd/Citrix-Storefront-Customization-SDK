@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{21C39B5B-695B-4D9D-B1DA-148F44A94017}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Examples</RootNamespace>
+    <AssemblyName>Examples</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Citrix.DeliveryServices.ResourcesCommon.Customization.Contract">
+      <HintPath>..\..\Assemblies\Citrix.DeliveryServices.ResourcesCommon.Customization.Contract.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EnumerationCustomizationExamples\EnumerationResultModifier_Example_CallCenter.cs" />
+    <Compile Include="Helpers\IcaFile.cs" />
+    <Compile Include="Helpers\Resources_SessionState_Subscriptions.cs" />
+    <Compile Include="Helpers\XmlSerializationHelper.cs" />
+    <Compile Include="InputCustomizationExamples\InputModifier_Example_LoadBalanceResourcesBetweenFarms.cs" />
+    <Compile Include="InputCustomizationExamples\InputModifier_Example_CustomizeAccessConditions.cs" />
+    <Compile Include="InputCustomizationExamples\InputModifier_Example_OverrideClientName.cs" />
+    <Compile Include="Helpers\ResultModifierBase.cs" />
+    <Compile Include="LaunchCustomizationExamples\LaunchResultModifier_Example_ChooseClientProxyByClientAddress.cs" />
+    <Compile Include="LaunchCustomizationExamples\LaunchResultModifier_Example_AlternateAddress.cs" />
+    <Compile Include="LaunchCustomizationExamples\LaunchResultModifier_Example_ChooseGatewayByClientAddress.cs" />
+    <Compile Include="LaunchCustomizationExamples\LaunchResultModifier_Example_TweakProperties.cs" />
+    <Compile Include="LaunchCustomizationExamples\LaunchResultModifier_Example_NatTranslation.cs" />
+    <Compile Include="LaunchCustomizationExamples\LaunchResultModifier_Example_LogonPointTracing.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SessionCustomizationExamples\SessionListModifier_Example_PreventReconnectUsingAccessConditions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Customization_Launch\Customization_Launch.csproj">
+      <Project>{C8FFB5CD-FF9E-45D7-A942-DF631111898F}</Project>
+      <Name>Customization_Launch</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Customization_SessionEnumeration\Customization_SessionEnumeration.csproj">
+      <Project>{BE774636-E007-4375-8FC3-C021A76271F5}</Project>
+      <Name>Customization_SessionEnumeration</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Helpers\Resources_SessionState_Subscriptions_Readme.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
